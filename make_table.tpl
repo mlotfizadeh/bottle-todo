@@ -8,3 +8,5 @@
   </tr>
 %end
 </table>
+
+<a href="/new">Add new task</a>
