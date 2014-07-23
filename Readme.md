@@ -28,3 +28,9 @@ $ python init-db.py
 ```sh
 $ python todo.py
 ```
+
+### View in the browser
+```sh
+localhost:8080/todo
+```
+
