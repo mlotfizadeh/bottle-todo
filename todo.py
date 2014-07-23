@@ -10,11 +10,11 @@ def todo_list():
 	c.close()
 	return template('make_table', rows=result)
 
-@route('/new', method='GET')
+@route('/new', method=['POST', 'GET'])
 def new_item():
-	if request.GET.get('save', '').strip():
+	if request.forms.get('save', '').strip():
 
-		new = request.GET.get('task', '').strip()
+		new = request.forms.get('task', '').strip()
 		conn = sqlite3.connect('todo.db')
 		c = conn.cursor()
 
@@ -30,12 +30,12 @@ def new_item():
 	else:
 		return template('new_task.tpl')
 
-@route('/edit/:no', method='GET')
+@route('/edit/:no', method=['GET','POST'])
 def edit_item(no):
 
-	if request.GET.get('save', '').strip():
-		edit = request.GET.get('task', '').strip()
-		status = request.GET.get('status', '').strip()
+	if request.forms.get('save', '').strip():
+		edit = request.forms.get('task', '').strip()
+		status = request.forms.get('status', '').strip()
 
 		if status == 'open':
 			status = 1

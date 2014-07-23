@@ -2,11 +2,10 @@
 <table border="1">
 %for row in rows:
   <tr>
-  %for col in row:
-    <td>{{col}}</td>
-  %end
+  	<td>{{row[0]}}</td>
+  	<td>{{row[1]}}</td>
+  	<td><a href="/edit/{{row[0]}}">Edit</a></td>
   </tr>
 %end
 </table>
-
 <a href="/new">Add new task</a>
